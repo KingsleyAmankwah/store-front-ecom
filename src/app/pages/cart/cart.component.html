@@ -1,0 +1,89 @@
+<!-- <div *ngFor="let item of cartItems">
+  <p>{{ item.title }} - {{ item.price }}</p>
+</div> -->
+
+<app-navbar />
+<section class="bg-[#F6F6F6] w-full h-full mt-12">
+  <div class="mb-12 mx-10" *ngFor="let item of cartItems">
+    <h2 class="font-bold text-[32px]">Cart ({{ cartItemCount }})</h2>
+
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 my-4 gap-10"
+    >
+      <div class="bg-white flex justify-center items-center p-2">
+        <img
+          [src]="item.imgSrc"
+          alt="{{ item.title }}"
+          class="w-11/12 h-auto"
+        />
+      </div>
+
+      <div class="bg-white flex flex-col items-start p-2">
+        <!-- <app-rating [stars]="item.stars"></app-rating> -->
+        <h2 class="font-bold text-xl">{{ item.title }}</h2>
+
+        <div class="flex items-center justify-around my-3">
+          <img src="./assets/seller.png" alt="" srcset="" />
+          <span class="ml-4 text-[1rem]">Seller: James cottage</span>
+        </div>
+        <p class="text-[16px]">{{ item.available }} Available</p>
+      </div>
+
+      <div class="bg-white flex flex-col justify-center items-center p-2">
+        <h3 class="text-center py-4 font-bold md:text-4xl">
+          {{ item.price }}
+        </h3>
+      </div>
+
+      <div class="bg-white flex flex-col justify-center items-center p-2">
+        <div class="flex items-center justify-center w-full my-10">
+          <button
+            class="bg-[#f6f6f6] text-black w-[30%] py-2 font-bold shadow-lg text-[32px]"
+            (click)="decrement()"
+          >
+            -
+          </button>
+          <button
+            class="bg-white text-black w-[25%] py-2 font-bold shadow-lg text-[32px]"
+          >
+            {{ count }}
+          </button>
+          <button
+            class="bg-[#f6f6f6] text-black w-[30%] py-2 font-bold shadow-lg text-[32px]"
+            (click)="increment()"
+          >
+            +
+          </button>
+        </div>
+      </div>
+
+      <div class="bg-white flex flex-col justify-center items-center p-2">
+        <button
+          class="text-black py-4 px-2 w-full cursor-pointer text-center shadow-xl mb-4"
+        >
+          Remove
+        </button>
+
+        <button
+          class="bg-[#1B81CA] text-white w-full py-4 px-2 cursor-pointer text-center"
+        >
+          Buy Now
+        </button>
+      </div>
+    </div>
+
+    <div class="flex w-full h-full items-center justify-center">
+      <div class="bg-white w-1/2 md:w-3/4">
+        <h3 class="font-bold py-4 px-2">
+          {{ item.price }}
+        </h3>
+      </div>
+      <div class="w-1/2 md:w-1/4 bg-[#1F71BC] flex justify-center items-center">
+        <button class="text-white py-4 px-2 cursor-pointer text-center">
+          Checkout
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer />
