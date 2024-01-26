@@ -1,0 +1,12 @@
+.stars span {
+  color: #ccc;
+}
+
+.stars span.filled {
+  color: #1b81ca;
+}
+
+.stars span.unfilled {
+  color: #808080;
+  font-size: 40px;
+}
