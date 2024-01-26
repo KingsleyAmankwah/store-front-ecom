@@ -16,6 +16,7 @@ import { RatingComponent } from '../../components/rating/rating.component';
 export class CartComponent {
   cartItems: Item[] = [];
   cartItemCount = 0;
+  totalCartPrice = 0;
 
   cartService = inject(CartService);
 
@@ -23,6 +24,8 @@ export class CartComponent {
     this.cartService.cartItems$.subscribe((items) => {
       this.cartItems = items;
       this.cartItemCount = items.length;
+
+      this.calculateTotalPrice();
     });
   }
 
@@ -35,6 +38,18 @@ export class CartComponent {
   decrement() {
     if (this.count > 1) {
       this.count--;
+    }
+  }
+
+  calculateTotalPrice() {
+    // Reset totalCartPrice before recalculating
+    this.totalCartPrice = 0;
+
+    // Sum up the prices of all items in the cart
+    for (const item of this.cartItems) {
+      // Parse the price as a float (assuming it's a string in the format 'GH₵ xxx.xx')
+      const price = parseFloat(item.price.replace('GH₵', '').trim());
+      this.totalCartPrice += price * this.count;
     }
   }
 }
