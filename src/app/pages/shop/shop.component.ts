@@ -36,19 +36,12 @@ export class ShopComponent {
   }
 
   items: Item[] = [
-    new Item(
-      1,
-      './assets/1.png',
-      'Stylish Leather Jacket',
-      'GH₵ 1,999.00',
-      4,
-      10
-    ),
+    new Item(1, './assets/1.png', 'Stylish Leather Jacket', '1,999.00', 4, 10),
     new Item(
       2,
       './assets/2.png',
       'Vintage Blue Leather Jacket',
-      'GH₵ 2,299.00',
+      '2,299.00',
       4.2,
       8
     ),
@@ -56,19 +49,12 @@ export class ShopComponent {
       3,
       './assets/3.png',
       'Classic Blue-black Denim Jacket',
-      'GH₵ 1,799.00',
+      '1,799.00',
       3,
       15
     ),
     new Item(4, './assets/4.png', 'Sleek Bomber Jacket', 'GH₵ 2,499.00', 4, 12),
-    new Item(
-      5,
-      './assets/5.png',
-      'Elegant Velvet Jacket',
-      'GH₵ 2,799.00',
-      4,
-      7
-    ),
+    new Item(5, './assets/5.png', 'Elegant Velvet Jacket', '2,799.00', 4, 7),
     new Item(
       6,
       './assets/6.png',
@@ -81,23 +67,16 @@ export class ShopComponent {
       7,
       './assets/7.png',
       'Chic Black Leather Jacket',
-      'GH₵ 2,599.00',
+      '2,599.00',
       4.6,
       11
     ),
-    new Item(
-      8,
-      './assets/8.png',
-      'Trendy Brown Raincoat',
-      'GH₵ 1,899.00',
-      4,
-      14
-    ),
+    new Item(8, './assets/8.png', 'Trendy Brown Raincoat', '1,899.00', 4, 14),
     new Item(
       9,
       './assets/9.png',
       'Modern Pink Puffer Jacket',
-      'GH₵ 2,399.00',
+      '2,399.00',
       4.4,
       13
     ),
@@ -105,7 +84,7 @@ export class ShopComponent {
       10,
       './assets/10.png',
       'Casual Black Utility Jacket',
-      'GH₵ 1,699.00',
+      '1,699.00',
       3,
       18
     ),
@@ -113,7 +92,7 @@ export class ShopComponent {
       11,
       './assets/11.png',
       'Sporty Green Windbreaker',
-      'GH₵ 2,899.00',
+      '2,899.00',
       4.9,
       6
     ),
@@ -121,7 +100,7 @@ export class ShopComponent {
       12,
       './assets/12.png',
       'Funky Brown Faux Fur Jacket',
-      'GH₵ 2,199.00',
+      '2,199.00',
       4.6,
       10
     ),
