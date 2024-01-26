@@ -1,0 +1,36 @@
+<app-navbar />
+
+<section class="bg-[#F6F6F6] w-full h-full my-12">
+  <div class="container mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-12">
+      <div
+        *ngFor="let item of items"
+        class="w-full flex flex-col justify-center items-center bg-white py-4"
+      >
+        <div class="">
+          <img
+            [src]="item.imgSrc"
+            alt="shop-image"
+            (click)="goToDetails(item)"
+            class="cursor-pointer"
+          />
+          <h1 class="font-normal">{{ item.title }}</h1>
+          <h2 class="font-bold text-2xl">{{ item.price }}</h2>
+          <app-rating [stars]="item.stars"></app-rating>
+          <p>{{ item.available }} Available</p>
+        </div>
+
+        <div class="w-1/2">
+          <button
+            class="bg-[#1B81CA] text-white py-2 w-full mt-4"
+            (click)="addToCart(item)"
+          >
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer />
