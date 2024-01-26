@@ -1,0 +1,173 @@
+<app-navbar />
+<div class="w-full h-full my-8">
+  <div class="heading">
+    <h1 class="">Lorem Emporium</h1>
+    <p class="">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br />
+      Nunc vulputate libero et velit.
+    </p>
+  </div>
+
+  <div class="relative w-full my-8">
+    <div class="relative h-56 overflow-hidden md:h-[477px]">
+      <div
+        *ngFor="let image of images; let i = index"
+        [class.hidden]="i !== currentImageIndex"
+      >
+        <img [src]="image" class="w-full h-full" alt="..." />
+      </div>
+    </div>
+
+    <!-- <div
+      class="absolute z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse bottom-5 left-1/2"
+    >
+      <button
+        *ngFor="let image of images; let i = index"
+        type="button"
+        class="w-3 h-3 rounded-full bg-white"
+        [attr.aria-current]="i === currentImageIndex"
+        [attr.aria-label]="'Slide ' + (i + 1)"
+        (click)="goToImage(i)"
+      ></button>
+    </div> -->
+
+    <div
+      class="absolute z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse bottom-5 left-1/2"
+    >
+      <button
+        *ngFor="let image of images; let i = index"
+        type="button"
+        class="w-3 h-3 rounded-full"
+        [class.bg-white]="i === currentImageIndex"
+        [class.bg-gray-400]="i !== currentImageIndex"
+        [attr.aria-current]="i === currentImageIndex"
+        [attr.aria-label]="'Slide ' + (i + 1)"
+        (click)="goToImage(i)"
+      ></button>
+    </div>
+  </div>
+
+  <!-- <section class="my-8">
+    <div class="grid md:grid-cols-2 place-items-center gap-6">
+      <div class="relative">
+        <img
+          src="./assets/hoddy.png"
+          alt="man-in-hoody"
+          class="w-full h-full mx-auto block"
+        />
+        <h3
+          class="absolute text-white top-[50%] left-[50%] -translate-x-1/2 text-2xl font-bold"
+        >
+          Ready to ship
+        </h3>
+      </div>
+      <div class="relative">
+        <img
+          src="./assets/blackout.png"
+          alt="all-black-dressing "
+          class="w-full h-full mx-auto block"
+        />
+
+        <h3
+          class="absolute text-white top-[50%] left-[50%] -translate-x-1/2 text-2xl font-bold"
+        >
+          Build your own Jacket
+        </h3>
+      </div>
+      <div class="relative">
+        <img
+          src="./assets/model.png"
+          alt="model-in-hoddy"
+          class="w-full h-full mx-auto block"
+        />
+        <h3
+          class="absolute text-white top-[50%] left-[50%] -translate-x-1/2 text-2xl font-bold"
+        >
+          Stylish Designs
+        </h3>
+      </div>
+      <div class="relative">
+        <img
+          src="./assets/stylist.png"
+          alt="stylist"
+          class="w-full h-full mx-auto block"
+        />
+
+        <h3
+          class="absolute text-white top-[50%] left-[50%] -translate-x-1/2 text-2xl font-bold"
+        >
+          Photo Gallery
+        </h3>
+      </div>
+    </div>
+  </section> -->
+
+  <section class="my-8">
+    <div class="grid md:grid-cols-1 place-items-center gap-12">
+      <div class="flex flex-col md:flex-row">
+        <div class="relative mb-8 md:mb-0 md:mr-8 shop">
+          <img
+            src="./assets/hoddy.png"
+            alt="man-in-hoody"
+            class="w-full h-full mx-auto block"
+          />
+          <h3
+            class="absolute text-white top-[50%] left-[50%] -translate-x-1/2 text-2xl font-bold"
+          >
+            Ready to ship
+          </h3>
+        </div>
+        <div class="relative shop">
+          <img
+            src="./assets/blackout.png"
+            alt="all-black-dressing "
+            class="w-full h-full mx-auto block"
+          />
+
+          <h3
+            class="absolute text-white top-[50%] left-[50%] -translate-x-1/2 text-2xl font-bold"
+          >
+            Build your own <br />Jacket
+          </h3>
+        </div>
+      </div>
+      <div class="flex flex-col md:flex-row">
+        <div class="relative mb-8 md:mb-0 md:mr-8 shop">
+          <img
+            src="./assets/model.png"
+            alt="model-in-hoddy"
+            class="w-full h-full mx-auto block"
+          />
+          <h3
+            class="absolute text-white top-[50%] left-[50%] -translate-x-1/2 text-2xl font-bold"
+          >
+            Stylish Designs
+          </h3>
+        </div>
+        <div class="relative shop">
+          <img
+            src="./assets/stylist.png"
+            alt="stylist"
+            class="w-full h-full mx-auto block"
+          />
+
+          <h3
+            class="absolute text-white top-[50%] left-[50%] -translate-x-1/2 text-2xl font-bold"
+          >
+            Photo Gallery
+          </h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="bottom">
+    <h2>Lorem Emporium</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate
+      libero et velit.
+    </p>
+  </div>
+</div>
+
+<app-footer />
