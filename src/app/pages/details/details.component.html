@@ -1,0 +1,140 @@
+<app-navbar />
+
+<section class="bg-[#F6F6F6] h-full mt-12">
+  <div
+    class="grid grid-cols-1 lg:grid-cols-2 w-full lg:w-11/12 gap-10 place-items-center mx-auto"
+    *ngIf="item"
+  >
+    <div class="card bg-white w-full h-full flex items-center justify-center">
+      <img
+        [src]="item.imgSrc"
+        class="w-full md:w-2/3 h-auto"
+        alt="{{ item.title }}"
+      />
+    </div>
+
+    <div class="card bg-white w-full h-full">
+      <h2 class="pt-6 pb-3 pl-4 font-normal text-2xl">{{ item.title }}</h2>
+      <div
+        class="flex flex-col md:flex-row w-full justify-between items-center px-4 text-center"
+      >
+        <app-rating [stars]="item.stars"></app-rating>
+        <p class="text-[16px]">{{ item.available }} Available</p>
+        <div class="flex items-center justify-around">
+          <img src="./assets/seller.png" alt="" srcset="" />
+          <span class="ml-4 text-[1rem]">Seller: James cottage</span>
+        </div>
+      </div>
+      <div class="flex items-center justify-center my-8">
+        <h3
+          class="text-center bg-[#f6f6f6] py-4 w-1/2 font-bold md:text-4xl shadow-lg"
+        >
+          GH₵ {{ item.price }}
+        </h3>
+      </div>
+      <div class="flex items-center justify-center w-full my-6">
+        <button class="bg-black text-white px-4 md:px-9 py-2 font-medium">
+          Brown
+        </button>
+        <button
+          class="bg-[#8A4118] text-white md:px-9 px-4 py-2 font-medium mx-4 md:mx-10"
+        >
+          Brown
+        </button>
+        <button class="bg-[#B5B5B5] text-black px-4 md:px-9 py-2 font-bold">
+          Gray
+        </button>
+      </div>
+
+      <p class="text-center font-bold">Size</p>
+
+      <div class="flex items-center justify-center w-full my-6">
+        <button
+          class="bg-[#f6f6f6] text-black md:w-[30%] w-1/2 px-4 py-2 font-semibold shadow-lg mx-5 md:mx-10 md:text-[24px]"
+        >
+          M
+        </button>
+        <button
+          class="bg-[#f6f6f6] text-black md:w-[30%] w-1/2 px-4 py-2 font-semibold shadow-lg md:text-[24px]"
+        >
+          L
+        </button>
+        <button
+          class="bg-[#f6f6f6] text-black md:w-[30%] px-4 py-2 font-semibold shadow-lg mx-5 md:mx-10 md:text-[24px]"
+        >
+          XL
+        </button>
+        <button
+          class="bg-[#f6f6f6] text-black md:w-[30%] px-4 py-2 font-semibold shadow-lg mx-5 md:mx-10 md:text-[24px]"
+        >
+          XXL
+        </button>
+      </div>
+
+      <div class="flex items-center justify-center w-full my-10">
+        <button
+          class="bg-[#f6f6f6] text-black md:w-[10%] w-[30%] py-2 font-bold shadow-lg text-[32px]"
+          (click)="decrement()"
+        >
+          -
+        </button>
+        <button
+          class="bg-white text-black md:w-[10%] w-[20%] py-2 font-bold shadow-lg text-[32px]"
+        >
+          {{ count }}
+        </button>
+        <button
+          class="bg-[#f6f6f6] text-black md:w-[10%] w-[30%] py-2 font-bold shadow-lg text-[32px]"
+          (click)="increment()"
+        >
+          +
+        </button>
+      </div>
+      <div class="flex items-center justify-center w-full my-6">
+        <button
+          class="bg-white text-[#1B81CA] w-[40%] md:w-[30%] py-2 font-semibold shadow-lg mx-5 md:mx-10"
+          (click)="buyNow()"
+        >
+          Buy Now
+        </button>
+        <button
+          class="bg-[#1B81CA] text-white w-[40%] md:w-[30%] py-2 font-semibold"
+          (click)="addToCart()"
+        >
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="w-full pl-5 md:pl-16 py-6">
+    <h2 class="font-bold text-4xl">Product Details</h2>
+    <p class="text-[#222222] leading-10">
+      100% New Brand and High Quality<br />
+
+      Main Material:Imitation Leather <br />
+
+      Color:Brown,Black <br />
+
+      Size:M/L/XL/2XL/3XL <br />
+
+      M=shoulder=42cm=16.38 in=chest=92cm=35.88 in=length=57cm=22.23
+      in=sleeve=58cm=22.62 in <br />
+
+      L=shoulder=43cm=16.77 in=chest=96cm=37.44 in=length=58cm=22.62
+      in=sleeve=59cm=23.01 in <br />
+
+      XL=shoulder=44cm=17.16 in=chest=100cm=39 in=length=60cm=23.4
+      in=sleeve=61cm=23.79 in <br />
+
+      2XL=shoulder=45cm=17.55 in=chest=104cm=40.56 in=length=61cm=23.79
+      in=sleeve=62cm=24.18 in <br />
+
+      3XL=shoulder=46cm=17.94 in=chest=108cm=42.12 in=length=63cm=24.57
+      in=sleeve=64cm=24.96 in <br />
+
+      Package:1 x Jacket
+    </p>
+  </div>
+  <app-footer />
+</section>
