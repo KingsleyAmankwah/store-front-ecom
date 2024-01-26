@@ -3,6 +3,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ShopComponent } from './pages/shop/shop.component';
 import { DetailsComponent } from './pages/details/details.component';
 import { CartComponent } from './pages/cart/cart.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
 
 export const routes: Routes = [
   {
@@ -22,6 +23,10 @@ export const routes: Routes = [
     component: CartComponent,
   },
 
+  {
+    path: 'checkout',
+    component: CheckoutComponent,
+  },
   {
     path: '**',
     redirectTo: '',
