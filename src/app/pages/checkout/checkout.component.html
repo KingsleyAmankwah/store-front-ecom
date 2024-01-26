@@ -1,0 +1,193 @@
+<div class="w-full h-full bg-[#f6f6f6] pb-20">
+  <div class="bg-white shadow-xl">
+    <nav class="flex justify-between items-center min-h-[10vh] mx-2">
+      <div class="logo w-full sm:w-[10%] md:w-[15%] mb-4 sm:mb-0">
+        <a
+          class="font-extrabold text-[#1F71BC] uppercase text-2xl cursor-pointer"
+          >Logo</a
+        >
+      </div>
+
+      <div class="items-center cursor-pointer">
+        <img
+          class="w-8 h-8 rounded-full"
+          src="https://avatars.githubusercontent.com/u/64941442?v=4"
+          alt="user-photo"
+        />
+      </div>
+    </nav>
+  </div>
+
+  <!-- <div class="mx-10 my-20 py-10 bg-white">
+    <div class="steps flex justify-center items-center gap-10 flex-row">
+      <div class="step flex flex-col items-center">
+        <span
+          class="circle font-bold bg-[#1F71BC] text-white rounded-full py-6 px-8 text-xl mb-4"
+          >1</span
+        >
+        <p class="text-[#1F71BC] font-bold">Checkout</p>
+      </div>
+      <div class="indicator w-28 h-1 -mt-8 flex">
+        <div class="bg-[#1F71BC] w-20 h-1"></div>
+        <div class="bg-[#D9D9D9] w-20 h-1"></div>
+      </div>
+      <div class="step flex flex-col items-center">
+        <span
+          class="circle font-bold bg-[#9EB1C3] text-white rounded-full py-6 px-8 text-xl mb-4"
+          >2</span
+        >
+        <p class="text-[#D9D9D9] font-bold">Pay</p>
+      </div>
+      <div class="indicator w-28 h-1 -mt-8 flex">
+        <div class="bg-[#D9D9D9] w-20 h-1"></div>
+        <div class="bg-[#D9D9D9] w-20 h-1"></div>
+      </div>
+
+      <div class="step flex flex-col items-center">
+        <span
+          class="circle font-bold bg-[#9EB1C3] text-white rounded-full py-6 px-8 text-xl mb-4"
+          >3</span
+        >
+        <p class="text-[#D9D9D9] font-bold">Delivery</p>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- <div class="mx-10 my-20 py-10 bg-white">
+    <div class="steps flex justify-center items-center gap-10 flex-row">
+      <div class="step flex flex-col items-center">
+        <span
+          class="circle font-bold"
+          [ngStyle]="{
+            'background-color': activeStep === 1 ? '#1F71BC' : '#D9D9D9',
+            color: activeStep === 1 ? 'white' : '#1F71BC'
+          }"
+          >1</span
+        >
+        <p class="text-[#1F71BC] font-bold">Checkout</p>
+      </div>
+      <div class="indicator w-28 h-1 -mt-8 flex">
+        <div
+          class="bg-[#1F71BC]"
+          [ngStyle]="{
+            width: activeStep === 1 ? '100%' : activeStep === 2 ? '50%' : '0%'
+          }"
+        ></div>
+        <div
+          class="bg-[#D9D9D9]"
+          [ngStyle]="{ width: activeStep === 2 ? '50%' : '100%' }"
+        ></div>
+      </div>
+      <div class="step flex flex-col items-center">
+        <span
+          class="circle font-bold"
+          [ngStyle]="{
+            'background-color': activeStep === 3 ? '#1F71BC' : '#9EB1C3',
+            color: activeStep === 3 ? 'white' : '#9EB1C3'
+          }"
+          >2</span
+        >
+        <p class="text-[#D9D9D9] font-bold">Pay</p>
+      </div>
+      <div class="indicator w-28 h-1 -mt-8 flex">
+        <div
+          class="bg-[#D9D9D9]"
+          [ngStyle]="{ width: activeStep === 3 ? '100%' : '0%' }"
+        ></div>
+        <div
+          class="bg-[#D9D9D9]"
+          [ngStyle]="{ width: activeStep === 3 ? '0%' : '100%' }"
+        ></div>
+      </div>
+      <div class="step flex flex-col items-center">
+        <span
+          class="circle font-bold"
+          [ngStyle]="{
+            'background-color': activeStep === 3 ? '#1F71BC' : '#9EB1C3',
+            color: activeStep === 3 ? 'white' : '#9EB1C3'
+          }"
+          >3</span
+        >
+        <p class="text-[#D9D9D9] font-bold">Delivery</p>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="mx-10 my-20 py-10 bg-white">
+    <div class="steps flex justify-center items-center gap-10 flex-row">
+      <div class="step flex flex-col items-center">
+        <span
+          class="circle font-bold bg-[#1F71BC] text-white rounded-full py-6 px-8 text-xl mb-4"
+          >1</span
+        >
+        <p class="text-[#1F71BC] font-bold">Checkout</p>
+      </div>
+      <div class="indicator w-28 h-1 -mt-8 flex">
+        <div
+          [class.bg-[#1F71BC]]="activeStep >= 1"
+          [class.bg-[#D9D9D9]]="activeStep < 1"
+          class="w-20 h-1"
+        ></div>
+        <div
+          [class.bg-[#1F71BC]]="activeStep >= 2"
+          [class.bg-[#D9D9D9]]="activeStep < 2"
+          class="w-20 h-1"
+        ></div>
+      </div>
+      <div class="step flex flex-col items-center">
+        <span
+          [ngClass]="{
+            'circle font-bold text-white rounded-full py-6 px-8 text-xl mb-4': true,
+            'bg-[#1F71BC]': activeStep >= 2,
+            'bg-[#9EB1C3]': activeStep < 2
+          }"
+          >2</span
+        >
+        <p
+          class=""
+          [ngClass]="{
+            'font-bold': true,
+            'text-[#1F71BC]': activeStep >= 2,
+            'text-[#9EB1C3]': activeStep < 2
+          }"
+        >
+          Pay
+        </p>
+      </div>
+      <div class="indicator w-28 h-1 -mt-8 flex">
+        <div
+          [class.bg-[#1F71BC]]="activeStep >= 2"
+          [class.bg-[#D9D9D9]]="activeStep < 2"
+          class="w-20 h-1"
+        ></div>
+        <div
+          [class.bg-[#1F71BC]]="activeStep >= 3"
+          [class.bg-[#D9D9D9]]="activeStep < 3"
+          class="w-20 h-1"
+        ></div>
+      </div>
+
+      <div class="step flex flex-col items-center">
+        <span
+          [ngClass]="{
+            'circle font-bold text-white rounded-full py-6 px-8 text-xl mb-4': true,
+            'bg-[#1F71BC]': activeStep >= 3,
+            'bg-[#9EB1C3]': activeStep < 3
+          }"
+          >3</span
+        >
+        <p
+          [ngClass]="{
+            'font-bold': true,
+            'text-[#1F71BC]': activeStep >= 3,
+            'text-[#9EB1C3]': activeStep < 3
+          }"
+        >
+          Delivery
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <button (click)="changeStep()">Next Step</button>
+</div>
