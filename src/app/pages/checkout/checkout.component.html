@@ -18,126 +18,31 @@
     </nav>
   </div>
 
-  <!-- <div class="mx-10 my-20 py-10 bg-white">
-    <div class="steps flex justify-center items-center gap-10 flex-row">
+  <div class="md:mx-10 mt-20 py-10 bg-white">
+    <div class="steps flex justify-center items-center md:gap-10 flex-row">
       <div class="step flex flex-col items-center">
         <span
-          class="circle font-bold bg-[#1F71BC] text-white rounded-full py-6 px-8 text-xl mb-4"
+          class="circle font-bold bg-[#1F71BC] text-white rounded-full py-3 px-5 md:py-6 md:px-8 text-xl mb-4"
           >1</span
         >
         <p class="text-[#1F71BC] font-bold">Checkout</p>
       </div>
-      <div class="indicator w-28 h-1 -mt-8 flex">
-        <div class="bg-[#1F71BC] w-20 h-1"></div>
-        <div class="bg-[#D9D9D9] w-20 h-1"></div>
-      </div>
-      <div class="step flex flex-col items-center">
-        <span
-          class="circle font-bold bg-[#9EB1C3] text-white rounded-full py-6 px-8 text-xl mb-4"
-          >2</span
-        >
-        <p class="text-[#D9D9D9] font-bold">Pay</p>
-      </div>
-      <div class="indicator w-28 h-1 -mt-8 flex">
-        <div class="bg-[#D9D9D9] w-20 h-1"></div>
-        <div class="bg-[#D9D9D9] w-20 h-1"></div>
-      </div>
-
-      <div class="step flex flex-col items-center">
-        <span
-          class="circle font-bold bg-[#9EB1C3] text-white rounded-full py-6 px-8 text-xl mb-4"
-          >3</span
-        >
-        <p class="text-[#D9D9D9] font-bold">Delivery</p>
-      </div>
-    </div>
-  </div> -->
-
-  <!-- <div class="mx-10 my-20 py-10 bg-white">
-    <div class="steps flex justify-center items-center gap-10 flex-row">
-      <div class="step flex flex-col items-center">
-        <span
-          class="circle font-bold"
-          [ngStyle]="{
-            'background-color': activeStep === 1 ? '#1F71BC' : '#D9D9D9',
-            color: activeStep === 1 ? 'white' : '#1F71BC'
-          }"
-          >1</span
-        >
-        <p class="text-[#1F71BC] font-bold">Checkout</p>
-      </div>
-      <div class="indicator w-28 h-1 -mt-8 flex">
-        <div
-          class="bg-[#1F71BC]"
-          [ngStyle]="{
-            width: activeStep === 1 ? '100%' : activeStep === 2 ? '50%' : '0%'
-          }"
-        ></div>
-        <div
-          class="bg-[#D9D9D9]"
-          [ngStyle]="{ width: activeStep === 2 ? '50%' : '100%' }"
-        ></div>
-      </div>
-      <div class="step flex flex-col items-center">
-        <span
-          class="circle font-bold"
-          [ngStyle]="{
-            'background-color': activeStep === 3 ? '#1F71BC' : '#9EB1C3',
-            color: activeStep === 3 ? 'white' : '#9EB1C3'
-          }"
-          >2</span
-        >
-        <p class="text-[#D9D9D9] font-bold">Pay</p>
-      </div>
-      <div class="indicator w-28 h-1 -mt-8 flex">
-        <div
-          class="bg-[#D9D9D9]"
-          [ngStyle]="{ width: activeStep === 3 ? '100%' : '0%' }"
-        ></div>
-        <div
-          class="bg-[#D9D9D9]"
-          [ngStyle]="{ width: activeStep === 3 ? '0%' : '100%' }"
-        ></div>
-      </div>
-      <div class="step flex flex-col items-center">
-        <span
-          class="circle font-bold"
-          [ngStyle]="{
-            'background-color': activeStep === 3 ? '#1F71BC' : '#9EB1C3',
-            color: activeStep === 3 ? 'white' : '#9EB1C3'
-          }"
-          >3</span
-        >
-        <p class="text-[#D9D9D9] font-bold">Delivery</p>
-      </div>
-    </div>
-  </div> -->
-
-  <div class="mx-10 my-20 py-10 bg-white">
-    <div class="steps flex justify-center items-center gap-10 flex-row">
-      <div class="step flex flex-col items-center">
-        <span
-          class="circle font-bold bg-[#1F71BC] text-white rounded-full py-6 px-8 text-xl mb-4"
-          >1</span
-        >
-        <p class="text-[#1F71BC] font-bold">Checkout</p>
-      </div>
-      <div class="indicator w-28 h-1 -mt-8 flex">
+      <div class="indicator w-12 md:w-28 h-1 -mt-8 flex">
         <div
           [class.bg-[#1F71BC]]="activeStep >= 1"
           [class.bg-[#D9D9D9]]="activeStep < 1"
-          class="w-20 h-1"
+          class="md:w-20 w-10 h-1"
         ></div>
         <div
           [class.bg-[#1F71BC]]="activeStep >= 2"
           [class.bg-[#D9D9D9]]="activeStep < 2"
-          class="w-20 h-1"
+          class="md:w-20 w-10 h-1"
         ></div>
       </div>
       <div class="step flex flex-col items-center">
         <span
           [ngClass]="{
-            'circle font-bold text-white rounded-full py-6 px-8 text-xl mb-4': true,
+            'circle font-bold text-white rounded-full py-3 px-5 md:py-6 md:px-8 text-xl mb-4': true,
             'bg-[#1F71BC]': activeStep >= 2,
             'bg-[#9EB1C3]': activeStep < 2
           }"
@@ -154,23 +59,23 @@
           Pay
         </p>
       </div>
-      <div class="indicator w-28 h-1 -mt-8 flex">
+      <div class="indicator w-12 md:w-28 h-1 -mt-8 flex">
         <div
           [class.bg-[#1F71BC]]="activeStep >= 2"
           [class.bg-[#D9D9D9]]="activeStep < 2"
-          class="w-20 h-1"
+          class="md:w-20 w-10 h-1"
         ></div>
         <div
           [class.bg-[#1F71BC]]="activeStep >= 3"
           [class.bg-[#D9D9D9]]="activeStep < 3"
-          class="w-20 h-1"
+          class="md:w-20 w-10 h-1"
         ></div>
       </div>
 
       <div class="step flex flex-col items-center">
         <span
           [ngClass]="{
-            'circle font-bold text-white rounded-full py-6 px-8 text-xl mb-4': true,
+            'circle font-bold text-white rounded-full py-3 px-5 md:py-6 md:px-8 text-xl mb-4': true,
             'bg-[#1F71BC]': activeStep >= 3,
             'bg-[#9EB1C3]': activeStep < 3
           }"
@@ -189,5 +94,389 @@
     </div>
   </div>
 
-  <button (click)="changeStep()">Next Step</button>
+  <div class="md:mx-10 mt-5" [ngClass]="{ hidden: activeStep > 1 }">
+    <h2 class="font-bold px-3 md:px-0 text-[32px] py-4">Shipping Address</h2>
+
+    <div class="py-10 bg-white">
+      <div
+        class="flex flex-col md:flex-row justify-between w-full px-4 md:px-8"
+      >
+        <div class="details space-y-5">
+          <div
+            class="flex flex-col md:flex-row md:items-center md:justify-between md:text-center w-full md:w-3/4"
+          >
+            <h3 class="font-bold text-[32px]">Robert Elinam</h3>
+            <span> 0240 000 000</span>
+          </div>
+          <p>
+            Western Region Sekondi Takoradi Metro Takoradi 17/8 old john saba
+            road.
+          </p>
+
+          <p>Self-pick: Takoradi office</p>
+        </div>
+        <div class="mt-6 md:mt-0">
+          <button
+            class="text-white bg-[#1F71BC] py-3 px-10 cursor-pointer text-center"
+          >
+            Change
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="md:mx-10 mt-5" [ngClass]="{ hidden: activeStep > 1 }">
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 my-4 gap-10"
+    >
+      <div class="bg-white flex justify-center items-center p-2">
+        <img src="./assets/iphone.png" alt="phone" class="w-11/12 h-auto" />
+      </div>
+
+      <div class="bg-white flex flex-col items-start p-2">
+        <!-- <app-rating [stars]="item.stars"></app-rating> -->
+        <h2 class="font-bold text-xl">Title</h2>
+
+        <div class="flex items-center justify-around my-3">
+          <img src="./assets/seller.png" alt="" srcset="" />
+          <span class="ml-4 text-[1rem]">Seller: James cottage</span>
+        </div>
+        <p class="text-[16px]">2 Available</p>
+      </div>
+
+      <div class="bg-white flex flex-col justify-center items-center p-2">
+        <h3 class="text-center py-4 font-bold md:text-4xl">GH₵ 23456</h3>
+      </div>
+
+      <div class="bg-white flex flex-col justify-center items-center p-2">
+        <div class="flex items-center justify-center w-full my-10">
+          <button
+            class="bg-[#f6f6f6] text-black w-[30%] py-2 font-bold shadow-lg text-[32px]"
+            disabled
+          >
+            -
+          </button>
+          <button
+            class="bg-white text-black w-[25%] py-2 font-bold shadow-lg text-[32px]"
+          >
+            2
+          </button>
+          <button
+            class="bg-[#f6f6f6] text-black w-[30%] py-2 font-bold shadow-lg text-[32px]"
+            disabled
+          >
+            +
+          </button>
+        </div>
+      </div>
+
+      <div class="bg-white flex flex-col justify-center items-center p-2">
+        <button
+          class="text-black py-4 px-2 w-full cursor-pointer text-center shadow-xl mb-4"
+        >
+          Remove
+        </button>
+
+        <button
+          class="bg-[#1B81CA] text-white w-full py-4 px-2 cursor-pointer text-center"
+        >
+          Buy Now
+        </button>
+      </div>
+    </div>
+
+    <div class="flex w-full h-full items-center justify-center">
+      <div class="bg-white w-1/2 md:w-3/4">
+        <h3 class="font-bold py-4 px-2">GH₵ 234456</h3>
+      </div>
+      <div class="w-1/2 md:w-1/4 bg-[#1F71BC] flex justify-center items-center">
+        <button
+          class="text-white py-4 px-2 cursor-pointer text-center"
+          (click)="changeStep()"
+        >
+          Checkout
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="md:mx-10 mt-5" *ngIf="activeStep === 2">
+    <h2 class="font-bold text-[#646464] text-[24px] pb-4">Payment Method</h2>
+
+    <div class="grid grid-cols-1 lg:grid-cols-[7fr_5fr] gap-10">
+      <div class="">
+        <div class="flex justify-between w-full lg:w-1/2">
+          <div
+            class="flex flex-row justify-center items-center cursor-pointer"
+            (click)="showDetails('visaCard')"
+            [ngClass]="{
+              'bg-white w-1/2 py-4': activePaymentButton === 'visaCard'
+            }"
+          >
+            <img
+              src="/assets/visa.png"
+              alt="visa-card"
+              class="md:mx-4 mx-2"
+              [ngClass]="{ hidden: activePaymentButton !== 'visaCard' }"
+            />
+            <img
+              src="/assets/card.png"
+              alt="visa-card"
+              class="mx-4"
+              [ngClass]="{ hidden: activePaymentButton === 'visaCard' }"
+            />
+            <p
+              [ngClass]="{
+                'font-normal md:text-[20px]': true,
+                'text-[#1F71BC]': activePaymentButton === 'visaCard',
+                'text-[#646464]': activePaymentButton !== 'visaCard'
+              }"
+            >
+              Visa
+            </p>
+          </div>
+
+          <div
+            class="flex flex-row justify-center items-center cursor-pointer"
+            (click)="showDetails('mobileMoney')"
+            [ngClass]="{
+              'bg-white w-1/2 py-4': activePaymentButton === 'mobileMoney'
+            }"
+          >
+            <img
+              src="/assets/fone.png"
+              alt="mobile-fone"
+              class="md:mx-4 mx-2"
+              [ngClass]="{ hidden: activePaymentButton !== 'mobileMoney' }"
+            />
+            <img
+              src="/assets/mobile.png"
+              alt="mobile-fone"
+              class="mx-4"
+              [ngClass]="{ hidden: activePaymentButton === 'mobileMoney' }"
+            />
+            <p
+              [ngClass]="{
+                'font-normal md:text-[20px]': true,
+                'text-[#1F71BC]': activePaymentButton === 'mobileMoney',
+                'text-[#646464]': activePaymentButton !== 'mobileMoney'
+              }"
+            >
+              Mobile money
+            </p>
+          </div>
+        </div>
+
+        <div class="w-full bg-white" *ngIf="activePaymentButton === 'visaCard'">
+          <form class="py-8 px-4">
+            <div
+              class="flex flex-col md:flex-row justify-center items-center w-full gap-4"
+            >
+              <div class="flex flex-col w-full shadow-md py-3 pl-4">
+                <label class="text-[#9F9F9F]">Bank Name</label>
+                <input
+                  type="text"
+                  class="outline-none border-none w-full font-bold text-black"
+                  placeholder="UBA"
+                />
+              </div>
+
+              <div class="flex flex-col w-full shadow-md py-3 pl-4">
+                <label class="text-[#9F9F9F]">Account Holder</label>
+                <input
+                  type="text"
+                  class="outline-none border-none w-full font-bold text-black"
+                  placeholder="Kwame Boansi"
+                />
+              </div>
+            </div>
+            <div
+              class="flex flex-col md:flex-row justify-center items-center w-full gap-4"
+            >
+              <div class="flex flex-col w-full shadow-md py-3 pl-4">
+                <label class="text-[#9F9F9F]">Branch</label>
+                <input
+                  type="text"
+                  class="outline-none border-none w-full font-bold text-black"
+                  placeholder="Central Park"
+                />
+              </div>
+
+              <div class="flex flex-col w-full shadow-md py-3 pl-4">
+                <label class="text-[#9F9F9F]">Card Number</label>
+                <input
+                  type="text"
+                  class="outline-none border-none w-full font-bold text-black"
+                  placeholder="1 2 3 4 5 6 7 8 9 1 2 3 4"
+                />
+              </div>
+            </div>
+            <div
+              class="flex flex-col md:flex-row justify-center items-center w-full gap-4"
+            >
+              <div class="flex flex-col w-full shadow-md py-3 pl-4">
+                <label class="text-[#9F9F9F]">CVC</label>
+                <input
+                  type="text"
+                  class="outline-none border-none w-full font-bold text-black"
+                  placeholder="1 2 3"
+                />
+              </div>
+
+              <div class="flex flex-col w-full shadow-md py-3 pl-4">
+                <label class="text-[#9F9F9F]">Expiry Date</label>
+                <input
+                  type="text"
+                  class="outline-none border-none w-full font-bold text-black"
+                  placeholder="07/24"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+        <div
+          class="w-full bg-white"
+          *ngIf="activePaymentButton === 'mobileMoney'"
+        >
+          <form class="py-8 px-4">
+            <div
+              class="flex flex-col md:flex-row justify-center items-center w-full gap-4"
+            >
+              <div class="flex flex-col w-full shadow-md py-3 pl-4">
+                <label class="text-[#9F9F9F]">Name</label>
+                <input
+                  type="text"
+                  class="outline-none border-none w-full font-bold text-black mt-2"
+                  placeholder="Robert Elinam"
+                />
+              </div>
+
+              <div class="flex flex-col w-full shadow-md py-3 pl-4 relative">
+                <label class="text-[#9F9F9F]">Mobile Service</label>
+
+                <div
+                  class="outline-none border-none w-full font-bold text-black mt-2 relative cursor-pointer"
+                  (click)="showOptions = !showOptions"
+                >
+                  {{ selectedOption || "Select a Service" }}
+                  <div
+                    *ngIf="showOptions"
+                    class="dropdown absolute flex flex-col justify-center items-center bg-white shadow-md w-full mt-2"
+                  >
+                    <div
+                      class="border-b w-full py-2 text-center cursor-pointer"
+                      (click)="selectOption('MTN Mobile Money', $event)"
+                    >
+                      MTN Mobile Money
+                    </div>
+                    <div
+                      (click)="selectOption('Vodafone Cash', $event)"
+                      class="border-b w-full py-2 text-center cursor-pointer"
+                    >
+                      Vodafone Cash
+                    </div>
+                    <div
+                      (click)="selectOption('AirtelTigo Cash', $event)"
+                      class="border-b w-full py-2 text-center cursor-pointer"
+                    >
+                      AirtelTigo Cash
+                    </div>
+                  </div>
+
+                  <img
+                    src="/assets/drop.png"
+                    alt="dropdown-icon"
+                    class="absolute right-0 top-2 me-3 flex justify-center items-center"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="flex justify-start items-start w-full md:w-1/2 gap-4">
+              <div class="flex flex-col w-full shadow-md py-3 pl-4">
+                <label class="text-[#9F9F9F]">Phone number</label>
+                <input
+                  type="text"
+                  class="outline-none border-none w-full font-bold text-black mt-2"
+                  placeholder="+233 24 000 0000"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="bg-white px-8">
+        <h2 class="text-bold text-[#9f9f9f] py-8">Summary</h2>
+        <div class="flex flex-col">
+          <div class="flex flex-row justify-between border-b py-4">
+            <span class="items-start">items</span>
+            <span class="items-end">1</span>
+          </div>
+
+          <div class="flex flex-row justify-between border-b py-4">
+            <span class="items-start">Payment Method</span>
+
+            <span class="items-end" *ngIf="activePaymentButton === 'visaCard'"
+              >Visa</span
+            >
+            <span
+              class="items-end"
+              *ngIf="activePaymentButton === 'mobileMoney'"
+              >Mobile Money</span
+            >
+          </div>
+
+          <div class="flex flex-row justify-between border-b py-4">
+            <span class="items-start">Amount</span>
+            <span> GH₵ 234456 </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8 flex justify-center items-center">
+      <a
+        (click)="changeStep()"
+        class="text-white bg-[#1F71BC] py-3 px-10 cursor-pointer text-center"
+      >
+        Pay
+      </a>
+    </div>
+  </div>
+
+  <div class="md:mx-10 mt-5" *ngIf="activeStep === 3">
+    <h2 class="font-bold text-[#646464] text-[24px] pl-4 pb-4">Delivered to</h2>
+
+    <div class="py-10 bg-white">
+      <div class="flex flex-col md:flex-row justify-between px-4 md:px-8">
+        <div class="details space-y-5">
+          <div
+            class="flex flex-col md:flex-row md:items-center md:justify-between md:text-center w-full md:w-3/4"
+          >
+            <h3 class="font-bold text-[32px]">Robert Elinam</h3>
+            <span> 0240 000 000</span>
+          </div>
+          <p>
+            Western Region Sekondi Takoradi Metro Takoradi 17/8 old john saba
+            road.
+          </p>
+
+          <p>Self-pick: Takoradi office</p>
+        </div>
+
+        <div class="mt-4 md:mt-0">
+          <img src="/assets/car.png" alt="" srcset="" />
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8 ml-4 md:ml-0">
+      <a
+        href="/shop"
+        class="text-white bg-[#1F71BC] py-3 px-10 cursor-pointer text-center"
+      >
+        Shop more
+      </a>
+    </div>
+  </div>
 </div>
