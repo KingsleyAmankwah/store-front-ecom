@@ -7,13 +7,8 @@
         *ngFor="let item of items"
         class="w-full flex flex-col justify-center items-center bg-white py-4"
       >
-        <div class="">
-          <img
-            [src]="item.imgSrc"
-            alt="shop-image"
-            (click)="goToDetails(item)"
-            class="cursor-pointer"
-          />
+        <div class="" (click)="goToDetails(item)">
+          <img [src]="item.imgSrc" alt="shop-image" class="cursor-pointer" />
           <h1 class="font-normal">{{ item.title }}</h1>
           <h2 class="font-bold text-xl md:text-2xl">
             GH₵ {{ item.price }}
