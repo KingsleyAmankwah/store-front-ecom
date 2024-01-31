@@ -22,6 +22,12 @@ export class CartService {
     }
   }
 
+  removeFromCart(item: Item) {
+    const currentItems = this.cartItemsSubject.value;
+    const newItems = currentItems.filter((i) => i.id !== item.id);
+    this.cartItemsSubject.next(newItems);
+  }
+
   isItemInCart(item: Item): boolean {
     const currentCartItems = this.cartItemsSubject.value;
     return currentCartItems.some((cartItem) => cartItem.id === item.id);
