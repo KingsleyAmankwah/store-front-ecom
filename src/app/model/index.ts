@@ -6,6 +6,7 @@ export class Item {
     public title: string,
     public price: string,
     public stars: number,
-    public available: number
+    public available: number,
+    public count?: number
   ) {}
 }
