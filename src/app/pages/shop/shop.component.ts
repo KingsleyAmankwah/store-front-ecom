@@ -64,7 +64,7 @@ export class ShopComponent {
       4.6,
       11
     ),
-    new Item(8, './assets/8.png', 'Trendy Brown Raincoat', '1,899.00', 4, 14),
+    new Item(8, './assets/8.png', 'Trendy Brown Raincoat', '1899.00', 4, 14),
     new Item(
       9,
       './assets/9.png',
