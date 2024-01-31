@@ -26,7 +26,6 @@
       </div>
 
       <div class="bg-white flex flex-col items-start p-2">
-        <!-- <app-rating [stars]="item.stars"></app-rating> -->
         <h2 class="font-bold text-xl">{{ item.title }}</h2>
 
         <div class="flex items-center justify-around my-3">
@@ -38,7 +37,9 @@
 
       <div class="bg-white flex flex-col justify-center items-center p-2">
         <h3 class="text-center py-4 font-bold md:text-4xl">
-          GH₵ {{ item.price }}
+          <!-- GH₵ {{ item.price }} -->
+
+          {{ item.price | currency : "GH₵" : "symbol" : "1.2-2" : "en-US" }}
         </h3>
       </div>
 
@@ -46,18 +47,18 @@
         <div class="flex items-center justify-center w-full my-10">
           <button
             class="bg-[#f6f6f6] text-black w-[30%] py-2 font-bold shadow-lg text-[32px]"
-            (click)="decrement()"
+            (click)="decrement(item)"
           >
             -
           </button>
           <button
             class="bg-white text-black w-[25%] py-2 font-bold shadow-lg text-[32px]"
           >
-            {{ count }}
+            {{ item.count }}
           </button>
           <button
             class="bg-[#f6f6f6] text-black w-[30%] py-2 font-bold shadow-lg text-[32px]"
-            (click)="increment()"
+            (click)="increment(item)"
           >
             +
           </button>
@@ -67,6 +68,7 @@
       <div class="bg-white flex flex-col justify-center items-center p-2">
         <button
           class="text-black py-4 px-2 w-full cursor-pointer text-center shadow-xl mb-4"
+          (click)="removeFromCart(item)"
         >
           Remove
         </button>
@@ -85,16 +87,16 @@
     >
       <div class="bg-white w-1/2 md:w-3/4">
         <h3 class="font-bold py-4 px-2">
-          GH₵ {{ totalCartPrice | number : "1.2-2" }}
+          {{ totalCartPrice | currency : "GH₵" : "symbol" : "1.2-2" : "en-US" }}
         </h3>
       </div>
       <div class="w-1/2 md:w-1/4 bg-[#1F71BC] flex justify-center items-center">
-        <a
-          href="/checkout"
+        <button
+          (click)="checkout()"
           class="text-white py-4 px-2 cursor-pointer text-center"
         >
           Checkout
-        </a>
+        </button>
       </div>
     </div>
   </div>
