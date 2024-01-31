@@ -36,7 +36,7 @@
       </div>
 
       <div class="bg-white flex flex-col justify-center items-center p-2">
-        <h3 class="text-center py-4 font-bold md:text-4xl">
+        <h3 class="text-center py-4 font-bold md:text-[24px]">
           <!-- GH₵ {{ item.price }} -->
 
           {{ item.price | currency : "GH₵" : "symbol" : "1.2-2" : "en-US" }}
@@ -46,18 +46,18 @@
       <div class="bg-white flex flex-col justify-center items-center p-2">
         <div class="flex items-center justify-center w-full my-10">
           <button
-            class="bg-[#f6f6f6] text-black w-[30%] py-2 font-bold shadow-lg text-[32px]"
+            class="bg-[#f6f6f6] text-black w-[30%] py-2 font-bold shadow-lg text-[29px]"
             (click)="decrement(item)"
           >
             -
           </button>
           <button
-            class="bg-white text-black w-[25%] py-2 font-bold shadow-lg text-[32px]"
+            class="bg-white text-black w-[25%] py-2 font-bold shadow-lg text-[29px]"
           >
             {{ item.count }}
           </button>
           <button
-            class="bg-[#f6f6f6] text-black w-[30%] py-2 font-bold shadow-lg text-[32px]"
+            class="bg-[#f6f6f6] text-black w-[30%] py-2 font-bold shadow-lg text-[29px]"
             (click)="increment(item)"
           >
             +
@@ -67,14 +67,14 @@
 
       <div class="bg-white flex flex-col justify-center items-center p-2">
         <button
-          class="text-black py-4 px-2 w-full cursor-pointer text-center shadow-xl mb-4"
+          class="text-black py-4 px-2 w-full cursor-pointer font-semibold text-center shadow-xl mb-4"
           (click)="removeFromCart(item)"
         >
           Remove
         </button>
 
         <button
-          class="bg-[#1B81CA] text-white w-full py-4 px-2 cursor-pointer text-center"
+          class="bg-[#1B81CA] text-white w-full py-4 px-2 font-semibold cursor-pointer text-center"
         >
           Buy Now
         </button>
@@ -86,14 +86,14 @@
       *ngIf="cartItems.length !== 0"
     >
       <div class="bg-white w-1/2 md:w-3/4">
-        <h3 class="font-bold py-4 px-2">
+        <h3 class="font-bold py-4 px-2 text-[32px]">
           {{ totalCartPrice | currency : "GH₵" : "symbol" : "1.2-2" : "en-US" }}
         </h3>
       </div>
       <div class="w-1/2 md:w-1/4 bg-[#1F71BC] flex justify-center items-center">
         <button
           (click)="checkout()"
-          class="text-white py-4 px-2 cursor-pointer text-center"
+          class="text-white py-4 px-2 cursor-pointer text-[32px] text-center"
         >
           Checkout
         </button>
