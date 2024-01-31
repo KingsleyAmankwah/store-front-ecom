@@ -36,12 +36,12 @@ export class ShopComponent {
   }
 
   items: Item[] = [
-    new Item(1, './assets/1.png', 'Stylish Leather Jacket', '1,999.00', 4, 10),
+    new Item(1, './assets/1.png', 'Stylish Leather Jacket', '1999.00', 4, 10),
     new Item(
       2,
       './assets/2.png',
       'Vintage Blue Leather Jacket',
-      '2,299.00',
+      '2299.00',
       4.2,
       8
     ),
@@ -49,25 +49,18 @@ export class ShopComponent {
       3,
       './assets/3.png',
       'Classic Blue-black Denim Jacket',
-      '1,799.00',
+      '1799.00',
       3,
       15
     ),
-    new Item(4, './assets/4.png', 'Sleek Bomber Jacket', 'GH₵ 2,499.00', 4, 12),
-    new Item(5, './assets/5.png', 'Elegant Velvet Jacket', '2,799.00', 4, 7),
-    new Item(
-      6,
-      './assets/6.png',
-      'Fashionable Gray Parka',
-      'GH₵ 2,199.00',
-      4,
-      9
-    ),
+    new Item(4, './assets/4.png', 'Sleek Bomber Jacket', '2499.00', 4, 12),
+    new Item(5, './assets/5.png', 'Elegant Velvet Jacket', '2799.00', 4, 7),
+    new Item(6, './assets/6.png', 'Fashionable Gray Parka', '2199.00', 4, 9),
     new Item(
       7,
       './assets/7.png',
       'Chic Black Leather Jacket',
-      '2,599.00',
+      '2599.00',
       4.6,
       11
     ),
@@ -76,7 +69,7 @@ export class ShopComponent {
       9,
       './assets/9.png',
       'Modern Pink Puffer Jacket',
-      '2,399.00',
+      '2399.00',
       4.4,
       13
     ),
@@ -84,7 +77,7 @@ export class ShopComponent {
       10,
       './assets/10.png',
       'Casual Black Utility Jacket',
-      '1,699.00',
+      '1699.00',
       3,
       18
     ),
@@ -92,7 +85,7 @@ export class ShopComponent {
       11,
       './assets/11.png',
       'Sporty Green Windbreaker',
-      '2,899.00',
+      '2899.00',
       4.9,
       6
     ),
@@ -100,7 +93,7 @@ export class ShopComponent {
       12,
       './assets/12.png',
       'Funky Brown Faux Fur Jacket',
-      '2,199.00',
+      '2199.00',
       4.6,
       10
     ),
