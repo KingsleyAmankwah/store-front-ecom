@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { RatingComponent } from '../../components/rating/rating.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -17,27 +18,34 @@ export class CartComponent {
   cartItems: Item[] = [];
   cartItemCount = 0;
   totalCartPrice = 0;
+  count = 1;
 
   cartService = inject(CartService);
+  router = inject(Router);
 
   ngOnInit() {
     this.cartService.cartItems$.subscribe((items) => {
-      this.cartItems = items;
       this.cartItemCount = items.length;
-
+      this.cartItems = items.map((item) => ({ ...item, count: 1 }));
       this.calculateTotalPrice();
     });
   }
 
-  count = 1;
-
-  increment() {
-    this.count++;
+  removeFromCart(item: Item) {
+    this.cartService.removeFromCart(item);
   }
 
-  decrement() {
-    if (this.count > 1) {
-      this.count--;
+  increment(item: Item) {
+    if (item.count !== undefined) {
+      item.count++;
+      this.calculateTotalPrice();
+    }
+  }
+
+  decrement(item: Item) {
+    if (item.count !== undefined && item.count > 1) {
+      item.count--;
+      this.calculateTotalPrice();
     }
   }
 
@@ -51,5 +59,9 @@ export class CartComponent {
       const price = parseFloat(item.price.replace('GH₵', '').trim());
       this.totalCartPrice += price * this.count;
     }
+  }
+
+  checkout() {
+    this.router.navigate(['/checkout']);
   }
 }
