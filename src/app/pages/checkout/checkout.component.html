@@ -1,6 +1,6 @@
 <div class="w-full h-full bg-[#f6f6f6] pb-20">
   <div class="bg-white shadow-xl">
-    <nav class="flex justify-between items-center min-h-[10vh] mx-2">
+    <nav class="flex justify-between items-center min-h-[10vh] md:mx-10">
       <div class="logo w-full sm:w-[10%] md:w-[15%] mb-4 sm:mb-0">
         <a
           class="font-extrabold text-[#1F71BC] uppercase text-2xl cursor-pointer"
@@ -25,7 +25,7 @@
           class="circle font-bold bg-[#1F71BC] text-white rounded-full py-3 px-5 md:py-6 md:px-8 text-xl mb-4"
           >1</span
         >
-        <p class="text-[#1F71BC] font-bold">Checkout</p>
+        <p class="text-[#1F71BC] font-extrabold">Checkout</p>
       </div>
       <div class="indicator w-12 md:w-28 h-1 -mt-8 flex">
         <div
@@ -51,7 +51,7 @@
         <p
           class=""
           [ngClass]="{
-            'font-bold': true,
+            'font-extrabold': true,
             'text-[#1F71BC]': activeStep >= 2,
             'text-[#9EB1C3]': activeStep < 2
           }"
@@ -83,7 +83,7 @@
         >
         <p
           [ngClass]="{
-            'font-bold': true,
+            'font-extrabold': true,
             'text-[#1F71BC]': activeStep >= 3,
             'text-[#9EB1C3]': activeStep < 3
           }"
@@ -145,11 +145,11 @@
           <img src="./assets/seller.png" alt="" srcset="" />
           <span class="ml-4 text-[1rem]">Seller: James cottage</span>
         </div>
-        <p class="text-[16px]">2 {{ item.available }}</p>
+        <p class="text-[16px]">{{ item.available }}</p>
       </div>
 
       <div class="bg-white flex flex-col justify-center items-center p-2">
-        <h3 class="text-center py-4 font-bold md:text-4xl">
+        <h3 class="text-center py-4 font-bold md:text-[24px]">
           {{ item.price | currency : "GH₵ " : "symbol" : "1.2-2" : "en-US" }}
         </h3>
       </div>
@@ -157,18 +157,18 @@
       <div class="bg-white flex flex-col justify-center items-center p-2">
         <div class="flex items-center justify-center w-full my-10">
           <button
-            class="bg-[#f6f6f6] disabled:bg-gray-200 text-black w-[30%] py-2 font-bold shadow-lg text-[32px]"
+            class="bg-[#f6f6f6] text-black w-[30%] py-2 font-bold shadow-lg text-[29px]"
             disabled
           >
             -
           </button>
           <button
-            class="bg-white text-black w-[25%] py-2 font-bold shadow-lg text-[32px]"
+            class="bg-white text-black w-[25%] py-2 font-bold shadow-lg text-[29px]"
           >
             2
           </button>
           <button
-            class="bg-[#f6f6f6] disabled:bg-gray-200 text-black w-[30%] py-2 font-bold shadow-lg text-[32px]"
+            class="bg-[#f6f6f6] text-black w-[30%] py-2 font-bold shadow-lg text-[29px]"
             disabled
           >
             +
@@ -178,14 +178,14 @@
 
       <div class="bg-white flex flex-col justify-center items-center p-2">
         <button
-          class="text-black py-4 px-2 w-full cursor-pointer text-center shadow-xl mb-4"
+          class="text-black py-4 px-2 w-full cursor-pointer font-semibold text-center text-[20px] shadow-xl mb-4"
           (click)="removeFromCart(item)"
         >
           Remove
         </button>
 
         <button
-          class="bg-[#1B81CA] text-white w-full py-4 px-2 cursor-pointer text-center"
+          class="bg-[#1B81CA] text-white w-full py-4 px-2 cursor-pointer font-semibold text-[20px] text-center"
         >
           Buy Now
         </button>
@@ -197,16 +197,16 @@
       class="flex w-full h-full items-center justify-center"
     >
       <div class="bg-white w-1/2 md:w-3/4">
-        <h3 class="font-bold py-4 px-2">
+        <h3 class="font-bold py-4 px-2 text-[32px]">
           {{ totalCartPrice | currency : "GH₵" : "symbol" : "1.2-2" : "en-US" }}
         </h3>
       </div>
       <div class="w-1/2 md:w-1/4 bg-[#1F71BC] flex justify-center items-center">
         <button
-          class="text-white py-4 px-2 cursor-pointer text-center"
+          class="text-white py-4 px-2 cursor-pointer text-[32px] text-center"
           (click)="changeStep()"
         >
-          Checkout
+          Confirm order
         </button>
       </div>
     </div>
