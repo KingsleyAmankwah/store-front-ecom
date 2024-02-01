@@ -7,6 +7,7 @@ export class Item {
     public price: string,
     public stars: number,
     public available: number,
-    public count?: number
+    public count?: number,
+    public selectedSize?: string
   ) {}
 }
