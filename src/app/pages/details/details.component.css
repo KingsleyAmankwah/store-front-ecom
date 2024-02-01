@@ -1,0 +1,5 @@
+/* Add this CSS to your styles to highlight selected size */
+.selected {
+  background-color: #1b81ca;
+  color: white;
+}
