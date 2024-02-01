@@ -9,6 +9,16 @@ export class CartService {
   private cartItemsSubject = new BehaviorSubject<Item[]>([]);
   cartItems$ = this.cartItemsSubject.asObservable();
 
+  private _selectedSize: string | null = null;
+
+  public get selectedSize(): string | null {
+    return this._selectedSize;
+  }
+
+  public set selectedSize(value: string | null) {
+    this._selectedSize = value;
+  }
+
   addToCart(item: Item) {
     const currentCartItems = this.cartItemsSubject.value;
     const itemExists = currentCartItems.some(
