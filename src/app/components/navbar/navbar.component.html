@@ -63,8 +63,43 @@
         </div>
       </div>
 
-      <a class="cursor-pointer">Login</a>
-      <a class="bg-[#1F71BC] text-white py-2 px-8 cursor-pointer">Sign up</a>
+      <ng-container *ngIf="!(authService.isLoggedIn | async)">
+        <a (click)="login()" class="cursor-pointer">Login</a>
+        <a
+          (click)="signup()"
+          class="bg-[#1F71BC] text-white py-2 px-8 cursor-pointer"
+          >Sign up</a
+        >
+      </ng-container>
+    </div>
+
+    <div
+      *ngIf="authService.isLoggedIn | async"
+      class="items-center flex justify-around w-[14%] cursor-pointer relative"
+    >
+      <p class="font-normal text-[24px]">Username</p>
+
+      <div (click)="toggleLogout()">
+        <img
+          class="relative w-8 h-8 rounded-full"
+          src="assets/avatar.png"
+          alt="user-photo"
+        />
+
+        <img
+          class="absolute bottom-0 right-0 top-4"
+          src="assets/dropdown.png"
+          alt=""
+        />
+      </div>
+
+      <button
+        class="absolute right-0 -bottom-11 bg-[#1F71BC] text-white py-2 px-8 cursor-pointer"
+        *ngIf="showLogout"
+        (click)="logout()"
+      >
+        Logout
+      </button>
     </div>
   </nav>
 
