@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { CartService } from '../../services/cart.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-details',
@@ -16,7 +17,8 @@ import { CartService } from '../../services/cart.service';
   styleUrl: './details.component.css',
 })
 export class DetailsComponent {
-  item!: Item | undefined;
+  item!: Item;
+  selectedSize: string | string = 'M';
 
   route = inject(ActivatedRoute);
   cartService = inject(CartService);
@@ -25,8 +27,11 @@ export class DetailsComponent {
 
   ngOnInit() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.item = this.getItemById(id);
-    console.log(this.item);
+    this.item = this.getItemById(id)!;
+  }
+  selectSize(size: string) {
+    this.selectedSize = size;
+    this.cartService.selectedSize = size; // Save the selected size in the CartService
   }
 
   getItemById(id: number): Item | undefined {
@@ -52,16 +57,66 @@ export class DetailsComponent {
     }
   }
 
+  // addToCart() {
+  //   if (this.item) {
+  //     const itemExistsInCart = this.cartService.isItemInCart(this.item);
+
+  //     if (!itemExistsInCart) {
+  //       this.cartService.addToCart(this.item);
+  //       Swal.fire({
+  //         position: 'top-end',
+  //         icon: 'success',
+  //         text: `${this.item.title} added to cart.`,
+  //         showConfirmButton: false,
+  //         timer: 4000,
+  //       });
+  //     } else {
+  //       Swal.fire({
+  //         position: 'top-end',
+  //         icon: 'info',
+  //         text: `${this.item.title} is already in the cart.`,
+  //         showConfirmButton: false,
+  //         timer: 4000,
+  //       });
+  //     }
+  //   }
+  // }
+
   addToCart() {
     if (this.item) {
       const itemExistsInCart = this.cartService.isItemInCart(this.item);
 
       if (!itemExistsInCart) {
-        this.cartService.addToCart(this.item);
-        console.log(`Added ${this.item.title} to cart.`);
+        // Make sure a size is selected before adding to cart
+        if (this.selectedSize) {
+          // Add the selected size to the item
+          this.item.selectedSize = this.selectedSize;
+          this.cartService.addToCart(this.item);
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            text: `${this.item.title} added to cart.`,
+            showConfirmButton: false,
+            timer: 4000,
+          });
+        } else {
+          // Show a message if no size is selected
+          Swal.fire({
+            position: 'top-end',
+            icon: 'info',
+            text: 'Please select a size before adding to cart.',
+            showConfirmButton: false,
+            timer: 4000,
+          });
+        }
       } else {
-        console.log(`${this.item.title} is already in the cart.`);
-        // Optionally, you can provide feedback to the user here.
+        Swal.fire({
+          position: 'top-end',
+          icon: 'info',
+          text: `${this.item.title} is already in the cart.`,
+          showConfirmButton: false,
+          timer: 4000,
+        });
       }
     }
   }

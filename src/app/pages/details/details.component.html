@@ -51,21 +51,29 @@
       <div class="flex items-center justify-center w-full my-6">
         <button
           class="bg-[#f6f6f6] text-black md:w-[30%] w-1/2 px-4 py-2 font-semibold shadow-lg mx-5 md:mx-10 md:text-[24px]"
+          [class.selected]="selectedSize === 'M'"
+          (click)="selectSize('M')"
         >
           M
         </button>
         <button
           class="bg-[#f6f6f6] text-black md:w-[30%] w-1/2 px-4 py-2 font-semibold shadow-lg md:text-[24px]"
+          [class.selected]="selectedSize === 'L'"
+          (click)="selectSize('L')"
         >
           L
         </button>
         <button
           class="bg-[#f6f6f6] text-black md:w-[30%] px-4 py-2 font-semibold shadow-lg mx-5 md:mx-10 md:text-[24px]"
+          [class.selected]="selectedSize === 'XL'"
+          (click)="selectSize('XL')"
         >
           XL
         </button>
         <button
           class="bg-[#f6f6f6] text-black md:w-[30%] px-4 py-2 font-semibold shadow-lg mx-5 md:mx-10 md:text-[24px]"
+          [class.selected]="selectedSize === 'XXL'"
+          (click)="selectSize('XXL')"
         >
           XXL
         </button>
