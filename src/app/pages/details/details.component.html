@@ -29,7 +29,7 @@
         <h3
           class="text-center bg-[#f6f6f6] py-4 w-1/2 font-bold md:text-4xl shadow-lg"
         >
-          GH₵ {{ item.price }}
+          {{ item.price | currency : "GH₵ " : "symbol" : "1.2-2" : "en-US" }}
         </h3>
       </div>
       <div class="flex items-center justify-center w-full my-6">
