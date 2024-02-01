@@ -6,6 +6,7 @@ import { FooterComponent } from '../../components/footer/footer.component';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { Router } from '@angular/router';
 import { CartService } from '../../services/cart.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-shop',
@@ -28,9 +29,21 @@ export class ShopComponent {
 
       if (!itemExistsInCart) {
         this.cartService.addToCart(item);
-        console.log(`Added ${item.title} to cart.`);
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          text: `${item.title} added to cart.`,
+          showConfirmButton: false,
+          timer: 3000,
+        });
       } else {
-        console.log(`${item.title} is already in the cart.`);
+        Swal.fire({
+          position: 'top-end',
+          icon: 'info',
+          text: `${item.title} is already in the cart.`,
+          showConfirmButton: false,
+          timer: 3000,
+        });
       }
     }
   }

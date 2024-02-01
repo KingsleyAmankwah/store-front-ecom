@@ -7,7 +7,7 @@
         *ngFor="let item of items"
         class="w-full flex flex-col justify-center items-center bg-white py-4"
       >
-        <div class="" (click)="goToDetails(item)">
+        <div class="cursor-pointer" (click)="goToDetails(item)">
           <img [src]="item.imgSrc" alt="shop-image" class="cursor-pointer" />
           <h1 class="font-normal">{{ item.title }}</h1>
           <h2 class="font-bold text-xl md:text-2xl">
@@ -30,5 +30,4 @@
     </div>
   </div>
 </section>
-
 <app-footer />
