@@ -6,6 +6,7 @@ import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { RatingComponent } from '../../components/rating/rating.component';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-cart',
@@ -27,18 +28,44 @@ export class CartComponent {
     this.cartService.cartItems$.subscribe((items) => {
       this.cartItemCount = items.length;
       this.cartItems = items.map((item) => ({ ...item, count: 1 }));
+      console.log(this.cartService.selectedSize);
       this.calculateTotalPrice();
     });
   }
 
   removeFromCart(item: Item) {
     this.cartService.removeFromCart(item);
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      text: `${item.title} removed from cart.`,
+      showConfirmButton: false,
+      timer: 3000,
+    });
   }
+
+  // increment(item: Item) {
+  //   if (item.count !== undefined) {
+  //     item.count++;
+  //     this.calculateTotalPrice();
+  //   }
+  // }
 
   increment(item: Item) {
     if (item.count !== undefined) {
-      item.count++;
-      this.calculateTotalPrice();
+      if (item.count < item.available) {
+        item.count++;
+        this.calculateTotalPrice();
+      } else {
+        Swal.fire({
+          position: 'top-end',
+          icon: 'info',
+          // title: `You can't add more of ${item.title}. Only ${item.available} available.`,
+          text: `You can't add more of ${item.title}. Only ${item.available} available.`,
+          showConfirmButton: false,
+          timer: 3000,
+        });
+      }
     }
   }
 
@@ -50,18 +77,16 @@ export class CartComponent {
   }
 
   calculateTotalPrice() {
-    // Reset totalCartPrice before recalculating
     this.totalCartPrice = 0;
 
-    // Sum up the prices of all items in the cart
     for (const item of this.cartItems) {
-      // Parse the price as a float (assuming it's a string in the format 'GH₵ xxx.xx')
       const price = parseFloat(item.price.replace('GH₵', '').trim());
       this.totalCartPrice += price * this.count;
     }
   }
 
-  checkout() {
+  checkout(event: Event) {
+    event.preventDefault();
     this.router.navigate(['/checkout']);
   }
 }
