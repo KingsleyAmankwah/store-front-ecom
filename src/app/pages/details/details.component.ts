@@ -18,7 +18,7 @@ import Swal from 'sweetalert2';
 })
 export class DetailsComponent {
   item!: Item;
-  selectedSize: string | string = 'M';
+  selectedSize: string | string = '';
 
   route = inject(ActivatedRoute);
   cartService = inject(CartService);
@@ -31,7 +31,7 @@ export class DetailsComponent {
   }
   selectSize(size: string) {
     this.selectedSize = size;
-    this.cartService.selectedSize = size; // Save the selected size in the CartService
+    this.cartService.selectedSize = size;
   }
 
   getItemById(id: number): Item | undefined {
@@ -41,7 +41,17 @@ export class DetailsComponent {
   count = 1;
 
   increment() {
-    this.count++;
+    if (this.count < this.item.available) {
+      this.count++;
+    } else {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'info',
+        text: `You can't add more of ${this.item.title}. Only ${this.item.available} available.`,
+        showConfirmButton: false,
+        timer: 3000,
+      });
+    }
   }
 
   decrement() {
@@ -56,31 +66,6 @@ export class DetailsComponent {
       this.router.navigate(['/cart']);
     }
   }
-
-  // addToCart() {
-  //   if (this.item) {
-  //     const itemExistsInCart = this.cartService.isItemInCart(this.item);
-
-  //     if (!itemExistsInCart) {
-  //       this.cartService.addToCart(this.item);
-  //       Swal.fire({
-  //         position: 'top-end',
-  //         icon: 'success',
-  //         text: `${this.item.title} added to cart.`,
-  //         showConfirmButton: false,
-  //         timer: 4000,
-  //       });
-  //     } else {
-  //       Swal.fire({
-  //         position: 'top-end',
-  //         icon: 'info',
-  //         text: `${this.item.title} is already in the cart.`,
-  //         showConfirmButton: false,
-  //         timer: 4000,
-  //       });
-  //     }
-  //   }
-  // }
 
   addToCart() {
     if (this.item) {
