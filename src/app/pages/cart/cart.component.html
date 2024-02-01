@@ -1,6 +1,6 @@
 <app-navbar />
 
-<section class="bg-[#F6F6F6] w-full h-full my-12 relative">
+<section class="bg-[#F6F6F6] w-full xl:min-h-screen mt-12">
   <div
     *ngIf="cartItems.length === 0"
     class="text-center flex justify-center items-center bg-[#f6f6f6] h-[60vh] w-full"
@@ -14,7 +14,7 @@
     </h2>
 
     <div
-      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 my-4 gap-10"
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-[1fr_1.5fr_1fr_1fr_1fr] my-4 gap-10"
       *ngFor="let item of cartItems"
     >
       <div class="bg-white flex justify-center items-center p-2">
@@ -25,15 +25,17 @@
         />
       </div>
 
-      <div class="bg-white flex flex-col items-start p-2">
-        <h2 class="font-bold text-xl">{{ item.title }}</h2>
+      <div class="bg-white flex flex-col p-4">
+        <h2 class="font-normal text-[32px]">{{ item.title }}</h2>
 
-        <div class="flex items-center justify-around my-3">
-          <img src="./assets/seller.png" alt="" srcset="" />
+        <div class="flex items-center my-3">
+          <img src="./assets/seller.png" alt="" />
           <span class="ml-4 text-[1rem]">Seller: James cottage</span>
         </div>
         <p class="text-[16px]">{{ item.available }} Available</p>
-        <p class="text-[16px]">{{ cartService.selectedSize || "M" }} Size</p>
+        <p class="text-[16px] pt-4">
+          {{ cartService.selectedSize || "M" }} Size
+        </p>
       </div>
 
       <div class="bg-white flex flex-col justify-center items-center p-2">
@@ -85,19 +87,19 @@
       *ngIf="cartItems.length !== 0"
     >
       <div class="bg-white w-1/2 md:w-3/4">
-        <h3 class="font-bold py-4 px-2 text-[32px]">
+        <h3 class="font-bold py-4 px-2 lg:text-[32px]">
           {{ totalCartPrice | currency : "GH₵" : "symbol" : "1.2-2" : "en-US" }}
         </h3>
       </div>
       <div class="w-1/2 md:w-1/4 bg-[#1F71BC] flex justify-center items-center">
         <a
           (click)="checkout($event)"
-          class="text-white py-4 px-2 cursor-pointer text-[32px] text-center"
+          class="text-white py-4 px-2 cursor-pointer lg:text-[32px] text-center"
         >
           Checkout
         </a>
       </div>
     </div>
   </div>
-  <app-footer />
 </section>
+<app-footer />
