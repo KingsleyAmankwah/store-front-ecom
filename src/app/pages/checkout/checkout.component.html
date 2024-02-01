@@ -145,7 +145,8 @@
           <img src="./assets/seller.png" alt="" srcset="" />
           <span class="ml-4 text-[1rem]">Seller: James cottage</span>
         </div>
-        <p class="text-[16px]">{{ item.available }}</p>
+        <p class="text-[16px]">{{ item.available }} available</p>
+        <p class="text-[16px]">{{ cartService.selectedSize || "M" }} Size</p>
       </div>
 
       <div class="bg-white flex flex-col justify-center items-center p-2">
@@ -165,7 +166,7 @@
           <button
             class="bg-white text-black w-[25%] py-2 font-bold shadow-lg text-[29px]"
           >
-            2
+            1
           </button>
           <button
             class="bg-[#f6f6f6] text-black w-[30%] py-2 font-bold shadow-lg text-[29px]"
@@ -198,7 +199,9 @@
     >
       <div class="bg-white w-1/2 md:w-3/4">
         <h3 class="font-bold py-4 px-2 text-[32px]">
-          {{ totalCartPrice | currency : "GH₵" : "symbol" : "1.2-2" : "en-US" }}
+          {{
+            totalCartPrice | currency : "GH₵ " : "symbol" : "1.2-2" : "en-US"
+          }}
         </h3>
       </div>
       <div class="w-1/2 md:w-1/4 bg-[#1F71BC] flex justify-center items-center">

@@ -23,6 +23,11 @@ export class CheckoutComponent {
       this.activeStep++;
     }
   }
+
+  ngAfterViewChecked() {
+    window.scrollTo(0, 0);
+  }
+
   showDetails(button: string): void {
     this.activePaymentButton = button;
   }
