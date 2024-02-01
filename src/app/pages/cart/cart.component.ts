@@ -44,13 +44,6 @@ export class CartComponent {
     });
   }
 
-  // increment(item: Item) {
-  //   if (item.count !== undefined) {
-  //     item.count++;
-  //     this.calculateTotalPrice();
-  //   }
-  // }
-
   increment(item: Item) {
     if (item.count !== undefined) {
       if (item.count < item.available) {
@@ -66,6 +59,7 @@ export class CartComponent {
           timer: 3000,
         });
       }
+      this.calculateTotalPrice();
     }
   }
 
@@ -81,7 +75,10 @@ export class CartComponent {
 
     for (const item of this.cartItems) {
       const price = parseFloat(item.price.replace('GH₵', '').trim());
-      this.totalCartPrice += price * this.count;
+      if (item.count !== undefined) {
+        // Now you can safely access item.count
+        this.totalCartPrice += price * item.count;
+      }
     }
   }
 
