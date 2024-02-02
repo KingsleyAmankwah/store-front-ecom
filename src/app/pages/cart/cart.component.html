@@ -1,6 +1,6 @@
 <app-navbar />
 
-<section class="bg-[#F6F6F6] w-full xl:min-h-screen mt-12">
+<section class="bg-[#F6F6F6] w-full xl:min-h-screen mt-12 font-[Roboto]">
   <div
     *ngIf="cartItems.length === 0"
     class="text-center flex justify-center items-center bg-[#f6f6f6] h-[60vh] w-full"
@@ -84,7 +84,7 @@
     </div>
 
     <div
-      class="flex w-full h-full items-center justify-center"
+      class="flex w-full h-full items-center justify-center mt-8"
       *ngIf="cartItems.length !== 0"
     >
       <div class="bg-white w-1/2 md:w-3/4">

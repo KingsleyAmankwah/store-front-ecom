@@ -5,10 +5,14 @@
     <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-12">
       <div
         *ngFor="let item of items"
-        class="w-full flex flex-col justify-center items-center bg-white py-4"
+        class="w-full flex flex-col justify-center items-center cursor-pointer bg-white py-4"
       >
-        <div class="cursor-pointer" (click)="goToDetails(item)">
-          <img [src]="item.imgSrc" alt="shop-image" class="cursor-pointer" />
+        <div (click)="goToDetails(item)">
+          <img
+            [src]="item.imgSrc"
+            alt="shop-image"
+            class="cursor-pointer w-[280px] h-[223.44px]"
+          />
           <h1 class="font-normal">{{ item.title }}</h1>
           <h2 class="font-bold text-xl md:text-2xl">
             GH₵ {{ item.price }}
@@ -18,7 +22,7 @@
           <p>{{ item.available }} Available</p>
         </div>
 
-        <div class="w-1/2">
+        <div class="w-[70%]">
           <button
             class="bg-[#1B81CA] text-white py-2 w-full mt-4"
             (click)="addToCart(item)"
