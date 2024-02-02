@@ -5,7 +5,7 @@
     <div class="logo w-full sm:w-[10%] md:w-[15%] mb-4 sm:mb-0">
       <a
         href="/"
-        class="font-extrabold text-[#1F71BC] uppercase text-2xl cursor-pointer"
+        class="font-extrabold text-[#1F71BC] uppercase text-2xl cursor-pointer font-[Roboto]"
         >Logo</a
       >
     </div>
@@ -63,59 +63,28 @@
         </div>
       </div>
 
-      <ng-container *ngIf="!(authService.isLoggedIn | async)">
-        <a (click)="login()" class="cursor-pointer">Login</a>
-        <a
-          (click)="signup()"
-          class="bg-[#1F71BC] text-white py-2 px-8 cursor-pointer"
-          >Sign up</a
-        >
-      </ng-container>
-    </div>
-
-    <div
-      *ngIf="authService.isLoggedIn | async"
-      class="items-center flex justify-around w-[14%] cursor-pointer relative"
-    >
-      <p class="font-normal text-[24px]">Username</p>
-
-      <div (click)="toggleLogout()">
-        <img
-          class="relative w-8 h-8 rounded-full"
-          src="assets/avatar.png"
-          alt="user-photo"
-        />
-
-        <img
-          class="absolute bottom-0 right-0 top-4"
-          src="assets/dropdown.png"
-          alt=""
-        />
-      </div>
-
-      <button
-        class="absolute right-0 -bottom-11 bg-[#1F71BC] text-white py-2 px-8 cursor-pointer"
-        *ngIf="showLogout"
-        (click)="logout()"
+      <a class="cursor-pointer font-[Roboto]">Login</a>
+      <a class="bg-[#1F71BC] text-white py-2 px-8 cursor-pointer font-[Roboto]"
+        >Sign up</a
       >
-        Logout
-      </button>
     </div>
   </nav>
 
   <div class="shadow-2xl min-h-[5vh] py-4 border mt-4">
     <ul class="flex text-center justify-center items-center">
       <li class="lg:px-8 px-2">
-        <a href="shop" class="text-[#1F71BC] md:text-xl">Women</a>
+        <a href="shop" class="text-[#1F71BC] md:text-xl font-[Roboto]">Women</a>
       </li>
       <li class="lg:px-8 px-2">
-        <a href="shop" class="text-[#1F71BC] md:text-xl">Men</a>
+        <a href="shop" class="text-[#1F71BC] md:text-xl font-[Roboto]">Men</a>
       </li>
       <li class="lg:px-8 px-2">
-        <a href="shop" class="text-[#1F71BC] md:text-xl">Kids</a>
+        <a href="shop" class="text-[#1F71BC] md:text-xl font-[Roboto]">Kids</a>
       </li>
       <li class="lg:px-8 px-2">
-        <a href="shop" class="text-[#1F71BC] md:text-xl">Accessories</a>
+        <a href="shop" class="text-[#1F71BC] md:text-xl font-[Roboto]"
+          >Accessories</a
+        >
       </li>
     </ul>
   </div>
