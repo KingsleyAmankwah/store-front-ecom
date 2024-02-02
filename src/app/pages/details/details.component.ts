@@ -25,6 +25,10 @@ export class DetailsComponent {
   router = inject(Router);
   shopComponent = inject(ShopComponent);
 
+  ngAfterViewChecked() {
+    window.scrollTo(0, 0);
+  }
+
   ngOnInit() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.item = this.getItemById(id)!;
