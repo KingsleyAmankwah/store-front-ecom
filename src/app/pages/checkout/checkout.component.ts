@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { Item } from '../../model';
 import { CommonModule } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-checkout',
@@ -12,7 +13,6 @@ import { CommonModule } from '@angular/common';
 })
 export class CheckoutComponent {
   totalCartPrice = 0;
-  count = 1;
   activeStep = 1;
   activePaymentButton: string = 'visaCard';
   cartItems: Item[] = [];
@@ -42,7 +42,7 @@ export class CheckoutComponent {
   }
 
   ngOnInit() {
-    this.cartService.cartItems$.subscribe((items) => {
+    this.cartService.cartItems.subscribe((items) => {
       this.cartItems = items;
       this.calculateTotalPrice();
     });
@@ -53,14 +53,36 @@ export class CheckoutComponent {
   }
 
   calculateTotalPrice() {
-    // Reset totalCartPrice before recalculating
     this.totalCartPrice = 0;
 
-    // Sum up the prices of all items in the cart
     for (const item of this.cartItems) {
-      // Parse the price as a float (assuming it's a string in the format 'GH₵ xxx.xx')
-      const price = parseFloat(item.price.replace('GH₵', '').trim());
-      this.totalCartPrice += price * this.count;
+      const price = parseFloat(item.price);
+      this.totalCartPrice += price * (item.count || 0);
+    }
+  }
+
+  increment(item: Item) {
+    if (item.count !== undefined) {
+      if (item.count < item.available) {
+        item.count++;
+        this.calculateTotalPrice();
+      } else {
+        Swal.fire({
+          position: 'top-end',
+          icon: 'info',
+          text: `You can't add more of ${item.title}. Only ${item.available} available.`,
+          showConfirmButton: false,
+          timer: 3000,
+        });
+      }
+      this.calculateTotalPrice();
+    }
+  }
+
+  decrement(item: Item) {
+    if (item.count !== undefined && item.count > 1) {
+      item.count--;
+      this.calculateTotalPrice();
     }
   }
 }
