@@ -14,6 +14,7 @@ import Swal from 'sweetalert2';
 export class CheckoutComponent {
   totalCartPrice = 0;
   activeStep = 1;
+  cartItemCount = 0;
   activePaymentButton: string = 'visaCard';
   cartItems: Item[] = [];
 
@@ -44,6 +45,7 @@ export class CheckoutComponent {
   ngOnInit() {
     this.cartService.cartItems.subscribe((items) => {
       this.cartItems = items;
+      this.cartItemCount = items.length;
       this.calculateTotalPrice();
     });
   }
