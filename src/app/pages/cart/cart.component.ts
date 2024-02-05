@@ -19,16 +19,15 @@ export class CartComponent {
   cartItems: Item[] = [];
   cartItemCount = 0;
   totalCartPrice = 0;
-  count = 1;
 
   cartService = inject(CartService);
   router = inject(Router);
 
   ngOnInit() {
-    this.cartService.cartItems$.subscribe((items) => {
+    this.cartService.cartItems.subscribe((items) => {
       this.cartItemCount = items.length;
-      this.cartItems = items.map((item) => ({ ...item, count: 1 }));
-      console.log(this.cartService.selectedSize);
+      this.cartItems = items.map((item) => ({ ...item }));
+      console.log(this.cartItems);
       this.calculateTotalPrice();
     });
   }
@@ -48,12 +47,12 @@ export class CartComponent {
     if (item.count !== undefined) {
       if (item.count < item.available) {
         item.count++;
+        this.cartService.addToCart(item);
         this.calculateTotalPrice();
       } else {
         Swal.fire({
           position: 'top-end',
           icon: 'info',
-          // title: `You can't add more of ${item.title}. Only ${item.available} available.`,
           text: `You can't add more of ${item.title}. Only ${item.available} available.`,
           showConfirmButton: false,
           timer: 3000,
@@ -66,6 +65,7 @@ export class CartComponent {
   decrement(item: Item) {
     if (item.count !== undefined && item.count > 1) {
       item.count--;
+      this.cartService.addToCart(item);
       this.calculateTotalPrice();
     }
   }
@@ -74,9 +74,8 @@ export class CartComponent {
     this.totalCartPrice = 0;
 
     for (const item of this.cartItems) {
-      const price = parseFloat(item.price.replace('GH₵', '').trim());
+      const price = parseFloat(item.price);
       if (item.count !== undefined) {
-        // Now you can safely access item.count
         this.totalCartPrice += price * item.count;
       }
     }
