@@ -19,10 +19,6 @@ export class ShopComponent {
   router = inject(Router);
   cartService = inject(CartService);
 
-  ngAfterViewChecked() {
-    window.scrollTo(0, 0);
-  }
-
   goToDetails(item: Item) {
     this.router.navigate(['/details', item.id]);
   }
