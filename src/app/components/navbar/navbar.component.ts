@@ -17,7 +17,7 @@ export class NavbarComponent {
   router = inject(Router);
 
   ngOnInit() {
-    this.cartService.cartItems$.subscribe((items) => {
+    this.cartService.cartItems.subscribe((items) => {
       this.cartItemCount = items.length;
     });
   }
