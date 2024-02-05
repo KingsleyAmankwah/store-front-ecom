@@ -18,7 +18,8 @@ import Swal from 'sweetalert2';
 })
 export class DetailsComponent {
   item!: Item;
-  selectedSize: string | string = '';
+  selectedSize!: string ;
+  count = 1;
 
   route = inject(ActivatedRoute);
   cartService = inject(CartService);
@@ -42,11 +43,10 @@ export class DetailsComponent {
     return this.shopComponent.items.find((item) => item.id === id);
   }
 
-  count = 1;
-
   increment() {
     if (this.count < this.item.available) {
       this.count++;
+      this.cartService.addToCart(this.item);
     } else {
       Swal.fire({
         position: 'top-end',
@@ -60,6 +60,7 @@ export class DetailsComponent {
 
   decrement() {
     if (this.count > 1) {
+      this.cartService.addToCart(this.item);
       this.count--;
     }
   }
