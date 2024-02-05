@@ -203,10 +203,12 @@
           }}
         </h3>
       </div>
-      <div class="w-1/2 md:w-1/4 bg-[#1F71BC] flex justify-center items-center">
+      <div
+        class="w-1/2 md:w-1/4 bg-[#1F71BC] flex justify-center cursor-pointer items-center"
+        (click)="changeStep()"
+      >
         <button
-          class="text-white py-4 px-2 cursor-pointer font-[Roboto] font-bold text-[32px] text-center"
-          (click)="changeStep()"
+          class="text-white py-4 px-2 font-[Roboto] font-bold text-[32px] text-center"
         >
           Confirm order
         </button>
@@ -217,7 +219,7 @@
   <div class="md:mx-10 mt-5" *ngIf="activeStep === 2">
     <h2 class="font-bold text-[#646464] text-[24px] pb-4">Payment Method</h2>
 
-    <div class="grid grid-cols-1 lg:grid-cols-[7fr_5fr] gap-10">
+    <div class="grid grid-cols-1 lg:grid-cols-[8fr_4fr] gap-10">
       <div class="">
         <div class="flex justify-between w-full lg:w-1/2">
           <div
@@ -307,7 +309,7 @@
             <div
               class="flex flex-col md:flex-row justify-center items-center w-full gap-4"
             >
-              <div class="flex flex-col w-full shadow-md py-3 pl-4">
+              <div class="flex flex-col w-full shadow-md py-3 my-8 pl-4">
                 <label class="text-[#9F9F9F]">Branch</label>
                 <input
                   type="text"
@@ -316,7 +318,7 @@
                 />
               </div>
 
-              <div class="flex flex-col w-full shadow-md py-3 pl-4">
+              <div class="flex flex-col w-full shadow-md py-3 my-8 pl-4">
                 <label class="text-[#9F9F9F]">Card Number</label>
                 <input
                   type="text"
@@ -406,7 +408,7 @@
               </div>
             </div>
             <div class="flex justify-start items-start w-full md:w-1/2 gap-4">
-              <div class="flex flex-col w-full shadow-md py-3 pl-4">
+              <div class="flex flex-col w-full shadow-md py-3 mt-4 pl-4">
                 <label class="text-[#9F9F9F]">Phone number</label>
                 <input
                   type="text"
@@ -422,26 +424,34 @@
         <h2 class="text-bold text-[#9f9f9f] py-8">Summary</h2>
         <div class="flex flex-col">
           <div class="flex flex-row justify-between border-b py-4">
-            <span class="items-start">items</span>
-            <span class="items-end">1</span>
+            <span class="items-start text-[#9F9F9F] text-[16px]">items</span>
+            <span class="items-end font-medium text-[#222222] text-[20px]">{{
+              cartItemCount
+            }}</span>
           </div>
 
           <div class="flex flex-row justify-between border-b py-4">
-            <span class="items-start">Payment Method</span>
+            <span class="items-start text-[#9F9F9F] text-[16px]"
+              >Payment Method</span
+            >
 
-            <span class="items-end" *ngIf="activePaymentButton === 'visaCard'"
+            <span
+              class="items-end font-medium text-[#222222] text-[20px]"
+              *ngIf="activePaymentButton === 'visaCard'"
               >Visa</span
             >
             <span
-              class="items-end"
+              class="items-end font-medium text-[#222222] text-[20px]"
               *ngIf="activePaymentButton === 'mobileMoney'"
               >Mobile Money</span
             >
           </div>
 
           <div class="flex flex-row justify-between border-b py-4">
-            <span class="items-start">Amount</span>
-            <span> GH₵ 234456 </span>
+            <span class="items-start text-[#9F9F9F] text-[16px]">Amount</span>
+            <span class="text-[#222222] font-medium text-[20px]">
+              GH₵ 234456
+            </span>
           </div>
         </div>
       </div>
