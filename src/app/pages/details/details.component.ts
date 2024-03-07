@@ -18,13 +18,15 @@ import Swal from 'sweetalert2';
 })
 export class DetailsComponent {
   item!: Item;
-  selectedSize!: string ;
+  selectedSize!: string;
   count = 1;
 
-  route = inject(ActivatedRoute);
-  cartService = inject(CartService);
-  router = inject(Router);
-  shopComponent = inject(ShopComponent);
+  constructor(
+    private route: ActivatedRoute,
+    private cartService: CartService,
+    private router: Router,
+    private shopComponent: ShopComponent
+  ) {}
 
   ngAfterViewChecked() {
     window.scrollTo(0, 0);
